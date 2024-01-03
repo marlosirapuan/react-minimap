@@ -4,32 +4,39 @@
 
 A minimap for React based on [jquery-minimap](https://github.com/john-bai/jquery-minimap)
 
+This is a small fork with React and some libs updated.
+
 ## Demo
 
 [react-minimap](https://jeremy-carbonne.github.io/react-minimap/)
 
 ## Installation
 
-`npm i --save react-minimap`
-
-## Usage
-```js
-import Minimap from 'react-minimap';
-import 'react-minimap/dist/react-minimap.css';
+```bash
+pnpm add https://github.com/marlosirapuan/react-minimap.git`
 ```
 
-```html
-<Minimap selector=".card">
-	<div className="card">
-		<h1>Title</h1>
-	</div>
-	<div className="card">
-		<h1>Title 2</h1>
-		<div className="card">
-			<h1>Titles are never rendered by the Minimap</h1>
-		</div>
-	</div>
-</Minimap>
+If you use typescript, adds to your .d.ts file:
+```
+declare module 'react-minimap'
+```
+
+## Usage
+```tsx
+import Minimap from 'react-minimap'
+
+import 'react-minimap/dist/react-minimap.css'
+
+type Props = {
+  children: React.ReactNode
+}
+export const MinimapArea = ({ children }: Props) => {
+  return (
+    <Minimap selector=".mySelector" keepAspectRatio>
+      {children}
+    </Minimap>
+  )
+}
 ```
 
 ## Configuration
